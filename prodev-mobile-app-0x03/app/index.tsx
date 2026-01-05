@@ -1,7 +1,7 @@
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Image, TouchableOpacity, Text, View, TextInput } from "react-native";
+import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import { styles } from "@/styles";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import {styles} from "@/styles";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 export default function Index() {
   return (
@@ -13,25 +13,27 @@ export default function Index() {
         </View>
         <Text style={styles.largeText}>Sign in to your</Text>
         <Text style={styles.largeText}>Account</Text>
-        <Text style={styles.smallText}>Enter your email and password to sign in.</Text>
+        <Text style={styles.smallText}>
+          Enter your email and password to sign in.
+        </Text>
 
         <View style={styles.formGroup}>
-          <View style={{ marginBottom: 20 }}>
-            <Text style={styles.placeholderText}>Email</Text>
-            <TextInput style={styles.inputField} placeholder="Enter your email" />
-          </View>
           <View>
+            <Text style={styles.placeholderText}>Email</Text>
+            <TextInput keyboardType="email-address" style={styles.inputField} />
+          </View>
+          <View style={{ marginTop: 20 }}>
             <Text style={styles.placeholderText}>Password</Text>
             <View style={styles.passwordGroup}>
               <TextInput style={{ flex: 1 }} />
               <FontAwesome name="eye-slash" size={24} color="#7E7B7B" />
             </View>
           </View>
-          <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+          <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </View>
 
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Sign In</Text>
+          <Text style={styles.buttonText}>Sign in</Text>
         </TouchableOpacity>
 
         <View style={styles.dividerGroup}>
@@ -57,12 +59,13 @@ export default function Index() {
                 gap: 5,
               }}
             >
-              <Image source={require("@/assets/images/google.png")} style={{ width: 20, height: 20 }} />
+              <Image source={require("@/assets/images/google.png")} />
               <Text style={styles.socialMediaButtonText}>
                 Continue with Google
               </Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.socialMediaButton}>
             <View
               style={{
@@ -71,7 +74,7 @@ export default function Index() {
                 gap: 5,
               }}
             >
-              <Image source={require("@/assets/images/facebook.png")} style={{ width: 20, height: 20 }} />
+              <Image source={require("@/assets/images/facebook.png")} />
               <Text style={styles.socialMediaButtonText}>
                 Continue with Facebook
               </Text>
@@ -84,7 +87,6 @@ export default function Index() {
           <Text style={styles.subTextJoin}>Join now</Text>
         </View>
       </SafeAreaView>
-
     </SafeAreaProvider>
   );
 }
